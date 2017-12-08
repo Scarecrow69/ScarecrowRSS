@@ -18,8 +18,8 @@ public class MainLayout extends HorizontalLayout {
 	private static final long serialVersionUID = 8585206545931340333L;
 
 	private RssLogic rssLogic;
-	private LeftPanel lp = new LeftPanel();
-	private RightPanel rp = new RightPanel();
+	private LeftPanel leftPanel = new LeftPanel();
+	private RightPanel rightPanel = new RightPanel();
 	
 	
 	public MainLayout()
@@ -53,20 +53,20 @@ public class MainLayout extends HorizontalLayout {
 	
 	private void buildLayouts()
 	{
-		lp.addStyleName("border");
-		rp.addStyleName("border");
+		leftPanel.addStyleName("border");
+		rightPanel.addStyleName("border");
 		
-		this.addComponents(lp,rp);
-		this.setComponentAlignment(lp, Alignment.TOP_LEFT);
-		this.setExpandRatio(rp, 1.2f);
-		this.setExpandRatio(lp, 0.4f);
+		this.addComponents(leftPanel,rightPanel);
+		this.setComponentAlignment(leftPanel, Alignment.TOP_LEFT);
+		this.setExpandRatio(rightPanel, 1.2f);
+		this.setExpandRatio(leftPanel, 0.4f);
 		
 	}
 	
 	private void setSubPanel()
 	{
-		lp.setChannelPanel(rssLogic.getRSS());
-		lp.setListLayout(rssLogic.getRSS(), rp);
+		leftPanel.setChannelPanel(rssLogic.getRSS());
+		leftPanel.setListLayout(rssLogic.getRSS(), rightPanel);
 	}
 	
 }
